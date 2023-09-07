@@ -1,4 +1,4 @@
-package com.testNg.listeners;
+package com.listeners;
 
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
