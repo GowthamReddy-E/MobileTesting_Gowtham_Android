@@ -1,71 +1,85 @@
 package com.gowtham.utils;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
 
-import java.time.Duration;
-
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import com.gowtham.exceptions.InvalidBrowserException;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
+import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.android.AndroidElement;
+import io.appium.java_client.remote.MobileCapabilityType;
 
 public class Driver {
-	
-	private WebDriver driver;
-	private String strMainWindowHandle;
-	
+
+	private static WebDriver driver;
+
 	private static ThreadLocal<WebDriver> threadLocal = new ThreadLocal<>();
-	
+
 	public static void set(WebDriver driver) {
 		threadLocal.set(driver);
 	}
-	
+
 	public static WebDriver get() {
 		return threadLocal.get();
 	}
-	
-	
-	public WebDriver getWebDriver() {
+
+
+
+	public static WebDriver getWebDriver() {
 		return driver;
 	}
-	
-	
-	public void initializeDriver(String browser, String url) {
-		browser = (browser == null)?"chrome":browser.toLowerCase();
-		
-		switch (browser) {
-			case "chrome":
-				WebDriverManager.chromedriver().setup();
-				driver = new ChromeDriver();
-				break;
-			case "firefox":
-				WebDriverManager.firefoxdriver().setup();
-				driver = new FirefoxDriver();
-				break;
-			case "edge":
-				WebDriverManager.edgedriver().setup();
-				driver = new EdgeDriver();
-				break;
-			default:
-				throw new InvalidBrowserException("Browser : " + browser + " is invalid. Browser should be ");
-		}
-		
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(GlobalVariables.DEFAULT_IMPLICIT_WAIT));
-		driver.manage().window().maximize();
-		
-		driver.get(url);
-		strMainWindowHandle = driver.getWindowHandle();
-		
+
+
+
+	@BeforeMethod
+	public  void initializeDriver() throws MalformedURLException {
+		String path=System.getProperty("user.dir");
+		File f = new File (path+"/src/test/resources/Apps");
+		//File fs = new File (f,"ApiDemos-debug.apk");
+		File fs = new File (f,"Android.SauceLabs.Mobile.Sample.app.2.2.1.apk");
+
+		System.out.println(fs.getAbsolutePath());
+
+		DesiredCapabilities dc=new DesiredCapabilities();
+
+		dc.setCapability(MobileCapabilityType.AUTOMATION_NAME, "Appium");
+
+		dc.setCapability(MobileCapabilityType.PLATFORM_NAME, "Android");
+
+		dc.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11");
+
+		dc.setCapability(MobileCapabilityType.AUTOMATION_NAME, "Appium");
+
+		dc.setCapability(MobileCapabilityType.DEVICE_NAME, "emulator-5554");
+
+
+		dc.setCapability("appPackage", "com.swaglabsmobileapp");
+
+		dc.setCapability("appActivity", "com.swaglabsmobileapp.SplashActivity");
+
+		dc.setCapability(MobileCapabilityType.APP,fs.getAbsolutePath());
+
+		dc.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator2");
+
+		driver = new AndroidDriver<AndroidElement>(new URL ("http://127.0.0.1:4723/wd/hub"), dc);
+		driver.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
 	}
-	
-	public void switchToMainWindow() {
-		driver.switchTo().window(strMainWindowHandle);
-	}
-	
-	public void quitWindow() {
+
+
+
+	@AfterMethod
+	public void tearDown() {
 		driver.quit();
 	}
-	
+
+
+
 
 }

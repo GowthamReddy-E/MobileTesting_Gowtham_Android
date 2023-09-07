@@ -1,13 +1,13 @@
 package com.gowtham.utils;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.InetAddress;
 import java.util.Date;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.WebDriver;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -20,17 +20,6 @@ public class ReporterUtil extends GenericUtil{
 
 	private ExtentReports extentReports;
 	private ExtentTest testCase;
-
-
-	private static ThreadLocal<ReporterUtil> threadLocal = new ThreadLocal<>();
-
-	public static void set(ReporterUtil reportUtil) {
-		threadLocal.set(reportUtil);
-	}
-
-	public static ReporterUtil get() {
-		return threadLocal.get();
-	}
 
 
 	public void initializeReport(String testSuiteName) {
@@ -62,7 +51,7 @@ public class ReporterUtil extends GenericUtil{
 		testCase.log(status, stepInfo);
 	}
 
-	public void writeLog(Status status, String stepInfo, String screenshotName) {
+	public void writeLog(Status status, String stepInfo, String screenshotName) throws IOException {
 		testCase.log(status, stepInfo, MediaEntityBuilder.createScreenCaptureFromBase64String(getScreenShot(screenshotName)).build());
 	}
 
@@ -76,7 +65,7 @@ public class ReporterUtil extends GenericUtil{
 
 	public String getScreenShot(String screenShotName) {
 
-		TakesScreenshot ts = (TakesScreenshot) Driver.get();
+		TakesScreenshot ts = (TakesScreenshot) Driver.getWebDriver();
 		try {
 			File img = ts.getScreenshotAs(OutputType.FILE);
 			FileUtils.moveFile(img, new File(SCREENSHOT_FOLDER_PATH+screenShotName+"_"+getTimeStamp()+".png"));
