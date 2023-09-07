@@ -10,6 +10,7 @@ import com.gowtham.utils.EventUtil;
 import freemarker.log.Logger;
 
 public class LoginPage extends EventUtil {
+	
 	private WebDriver driver;
 	
 	private static ThreadLocal<LoginPage> threadLocal = new ThreadLocal<>();
@@ -23,13 +24,13 @@ public class LoginPage extends EventUtil {
 	}
 	
 	
-	@FindBy(xpath = "//input[@name='email']")
+	@FindBy(xpath = "//android.widget.EditText[contains(@text,'Username')]")
 	private WebElement txtUserName;
 	
-	@FindBy(name ="password")
+	@FindBy(xpath ="//android.widget.EditText[@content-desc=\"test-Password\"]")
 	private WebElement txtPassword;
 	
-	@FindBy(xpath="//div[text()='Login']")
+	@FindBy(xpath="//android.view.ViewGroup[@content-desc=\"test-LOGIN\"]")
 	private WebElement btnLogin;
 	
 	

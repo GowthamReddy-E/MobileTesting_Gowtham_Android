@@ -20,10 +20,10 @@ public class WaitUtils {
 		
 	}
 	
-	public WebElement waitForElementLocated(By by, int timeOut) {
+	public WebElement waitForElementLocated(By by, long timeOut) {
 		
 		try {
-			WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(timeOut));
+			WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(),timeOut);
 			wait.pollingEvery(Duration.ofMillis(200));
 			return wait.until(ExpectedConditions.presenceOfElementLocated(by));
 		} catch(Exception e) {
@@ -36,7 +36,7 @@ public class WaitUtils {
 	public WebElement waitForElementLocated(By by) {
 		
 		try {
-			WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(GlobalVariables.DEFAULT_EXPLICIT_WAIT));
+			WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), GlobalVariables.DEFAULT_EXPLICIT_WAIT);
 			wait.pollingEvery(Duration.ofMillis(200));
 			return wait.until(ExpectedConditions.presenceOfElementLocated(by));
 		} catch(Exception e) {
@@ -49,7 +49,7 @@ public class WaitUtils {
 	public boolean waitForElementToEnable(WebElement element) {
 		
 		try {
-			WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(GlobalVariables.DEFAULT_EXPLICIT_WAIT));
+			WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), GlobalVariables.DEFAULT_EXPLICIT_WAIT);
 			wait.pollingEvery(Duration.ofMillis(200));
 			wait.until(ExpectedConditions.elementToBeClickable(element));
 			return true;
@@ -60,38 +60,38 @@ public class WaitUtils {
 		return false;	
 	}
 	
-	public boolean waitForElementToEnable(WebElement element, int timeOut) {
+	public boolean waitForElementToEnable(WebElement element, long defaultExplicitWait) {
 		
 		try {
-			WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(timeOut));
+			WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), defaultExplicitWait);
 			wait.pollingEvery(Duration.ofMillis(200));
 			wait.until(ExpectedConditions.elementToBeClickable(element));
 			return true;
 		} catch(Exception e) {
-			System.out.println("Element: " + element.toString()+ " was not enabled even after waiting for "+ timeOut + " seconds.");
+			System.out.println("Element: " + element.toString()+ " was not enabled even after waiting for "+ defaultExplicitWait + " seconds.");
 		}
 		
 		return false;	
 	}
 	
-	public boolean waitForElementToVisible(WebElement element, int timeOut) {
+	public boolean waitForElementToVisible(WebElement element, long defaultExplicitWait) {
 		
 		try {
-			WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(timeOut));
+			WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(),defaultExplicitWait);
 			wait.pollingEvery(Duration.ofMillis(200));
 			wait.until(ExpectedConditions.visibilityOf(element));
 			return true;
 		} catch(Exception e) {
-			System.out.println("Element: " + element.toString()+ " was not visible even after waiting for "+ timeOut + " seconds.");
+			System.out.println("Element: " + element.toString()+ " was not visible even after waiting for "+ defaultExplicitWait + " seconds.");
 		}
 		
 		return false;	
 	}
 	
-	public boolean waitForElementToVisible(By by, int timeOut) {
+	public boolean waitForElementToVisible(By by, long timeOut) {
 		
 		try {
-			WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(timeOut));
+			WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), timeOut);
 			wait.pollingEvery(Duration.ofMillis(200));
 			wait.until(ExpectedConditions.visibilityOfElementLocated(by));
 			return true;
@@ -107,7 +107,7 @@ public class WaitUtils {
 	public boolean waitForElementToVisible(WebElement element) {
 		
 		try {
-			WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(GlobalVariables.DEFAULT_EXPLICIT_WAIT));
+			WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), GlobalVariables.DEFAULT_EXPLICIT_WAIT);
 			wait.pollingEvery(Duration.ofMillis(200));
 			wait.until(ExpectedConditions.visibilityOf(element));
 			return true;
@@ -121,7 +121,7 @@ public class WaitUtils {
 	public Alert switchToAlert() {
 		
 		try {
-			WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(GlobalVariables.DEFAULT_EXPLICIT_WAIT));
+			WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), GlobalVariables.DEFAULT_EXPLICIT_WAIT);
 			wait.pollingEvery(Duration.ofMillis(200));
 			return wait.until(ExpectedConditions.alertIsPresent());
 			
@@ -135,7 +135,7 @@ public class WaitUtils {
 	public Alert switchToAlert(int timeOut) {
 		
 		try {
-			WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(timeOut));
+			WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), timeOut);
 			wait.pollingEvery(Duration.ofMillis(200));
 			return wait.until(ExpectedConditions.alertIsPresent());
 			
@@ -146,10 +146,10 @@ public class WaitUtils {
 		return null;	
 	}
 
-	public boolean waitForElementTextToBePresent(By by, String text, int timeOut) {
+	public boolean waitForElementTextToBePresent(By by, String text, long timeOut) {
 		
 		try {
-			WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(timeOut));
+			WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(), timeOut);
 			wait.pollingEvery(Duration.ofMillis(200));
 			wait.until(ExpectedConditions.textToBePresentInElementLocated(by, text));
 			return true;
@@ -164,7 +164,7 @@ public class WaitUtils {
 	public boolean waitForElementTextToBePresent(WebElement element, String text, int timeOut) {
 		
 		try {
-			WebDriverWait wait = new WebDriverWait(Driver.get(), Duration.ofSeconds(timeOut));
+			WebDriverWait wait = new WebDriverWait(Driver.getWebDriver(),timeOut);
 			wait.pollingEvery(Duration.ofMillis(200));
 			wait.until(ExpectedConditions.textToBePresentInElement(element, text));
 			return true;

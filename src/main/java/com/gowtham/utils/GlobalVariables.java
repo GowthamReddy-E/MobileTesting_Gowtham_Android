@@ -21,7 +21,7 @@ private static ThreadLocal<GlobalVariables> threadLocal = new ThreadLocal<>();
 	public static final String DATA_FILES_PATH = PROJECT_PATH+"\\src\\test\\resources\\DataFiles\\";
 	public static final String REPOSITORY_FILE_PATH = PROJECT_PATH+"\\src\\test\\resources\\Repositories\\";
 	public static final int DEFAULT_IMPLICIT_WAIT = 20;
-	public static final int DEFAULT_EXPLICIT_WAIT = 20;
+	public static final long DEFAULT_EXPLICIT_WAIT = 20000;
 	public static Map<String, String> envData;
 	public String tcName;
 	public String currentTestName;

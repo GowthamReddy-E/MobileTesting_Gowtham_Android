@@ -75,7 +75,7 @@ public class EventUtil extends WaitUtils{
 		
 		
 		if (element != null) {
-			JavascriptExecutor js = (JavascriptExecutor)Driver.get();
+			JavascriptExecutor js = (JavascriptExecutor)Driver.getWebDriver();
 			js.executeScript("arguments[0].click();", element);
 		} else {
 			throw new ClickElementFailedException ("unable to click on the element as given element is null.");
@@ -118,11 +118,11 @@ public class EventUtil extends WaitUtils{
 	
 	public boolean switchToWindow(String windowTitle) {
 		boolean isWindowFound = false;
-		Set<String> allHandles = Driver.get().getWindowHandles();
+		Set<String> allHandles = Driver.getWebDriver().getWindowHandles();
 		
 		for (String handle: allHandles) {
-			Driver.get().switchTo().window(handle);
-			if (Driver.get().getTitle().contains(windowTitle)) {
+			Driver.getWebDriver().switchTo().window(handle);
+			if (Driver.getWebDriver().getTitle().contains(windowTitle)) {
 				isWindowFound = true;
 				break;
 			}
