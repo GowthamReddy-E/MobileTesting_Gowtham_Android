@@ -70,8 +70,6 @@ public class Configuration extends GlobalVariables{
 		DataUtil.set(new DataUtil());
 		LoginPage.set(new LoginPage(Driver.get()));
 		HomePage.set(new HomePage(Driver.get()));
-		CompaniesPage.set(new CompaniesPage(Driver.get()));
-		NewCompanyPage.set(new NewCompanyPage(Driver.get()));
 		String tcId = GlobalVariables.get().tcName.split("_")[0];	
 		GlobalVariables.get().tcData = DataUtil.get().getTCData(DATA_FILES_PATH+"CompanyData.xlsx", tcId.replaceAll("[0-9]{1,}", ""), tcId);
 	}
