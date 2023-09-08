@@ -33,14 +33,11 @@ public class LoginPage extends EventUtil {
 	@FindBy(xpath="//android.view.ViewGroup[@content-desc=\"test-LOGIN\"]")
 	private WebElement btnLogin;
 	
-	
-
 	public LoginPage(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 		this.driver = driver;
 	}
-	
-	
+		
 	public boolean isLoginPageDisplayed() {
 		return checkElementExists(txtUserName);
 	}
@@ -51,7 +48,5 @@ public class LoginPage extends EventUtil {
 		clickElement(btnLogin);
 
 	}
-	
-
 	
 }

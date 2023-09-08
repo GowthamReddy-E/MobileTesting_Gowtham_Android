@@ -22,6 +22,16 @@ public class ReporterUtil extends GenericUtil{
 	private ExtentTest testCase;
 
 
+	private static ThreadLocal<ReporterUtil> threadLocal = new ThreadLocal<>();
+
+	public static void set(ReporterUtil reportUtil) {
+		threadLocal.set(reportUtil);
+	}
+
+	public static ReporterUtil get() {
+		return threadLocal.get();
+	}
+
 	public void initializeReport(String testSuiteName) {
 
 		String reportFilePath = REPORT_FOLDER_PATH+testSuiteName+"_"+getTimeStamp()+".html";
