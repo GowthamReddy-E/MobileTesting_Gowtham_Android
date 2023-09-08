@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="sample_Test_0001" guice-stage="DEVELOPMENT">
+  <parameter name="env" value="qa"></parameter>
+  <test name="sample_Test">
+    <classes>
+      <class name="com.tests.sampleTest"/>
+    </classes>
+  </test> <!-- Default test -->
+  
+</suite> <!-- Default -->
+            
