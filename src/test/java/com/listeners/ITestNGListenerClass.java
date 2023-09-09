@@ -1,46 +1,32 @@
 package com.listeners;
 
-import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
+
+import com.gowtham.utils.ReporterUtil;
 
 public class ITestNGListenerClass implements ITestListener {
 	
 	
 	public void onTestSuccess(ITestResult result) {
 		System.out.println(result.getMethod().getMethodName()+ " is passed");
+		System.out.println("on test success gowtham");
+//		ReporterUtil.set(new ReporterUtil());
+		ReporterUtil.get().getScreenShot(result.getMethod().getMethodName()+"success");
 	}
 	
 	public void onTestFailure(ITestResult result) {
 		System.out.println(result.getMethod().getMethodName()+ " is failed");
+		System.out.println("on test failure gowtham");
+//		ReporterUtil.set(new ReporterUtil());
+		ReporterUtil.get().getScreenShot(result.getMethod().getMethodName()+"failure");
 	}
 
 	public void onTestSkipped(ITestResult result) {
 		System.out.println(result.getMethod().getMethodName()+ " is skipped");
-	}
-
-	@Override
-	public void onTestStart(ITestResult result) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onStart(ITestContext context) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void onFinish(ITestContext context) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("on test skipped gowtham");
+//		ReporterUtil.set(new ReporterUtil());
+		ReporterUtil.get().getScreenShot(result.getMethod().getMethodName()+"skipped");
 	}
 
 }
