@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import com.gowtham.utils.EventUtil;
 
 import freemarker.log.Logger;
+import io.qameta.allure.Step;
 
 public class LoginPage extends EventUtil {
 	
@@ -38,10 +39,13 @@ public class LoginPage extends EventUtil {
 		this.driver = driver;
 	}
 		
+	
+	@Step("check weather the login page is displayed or not")
 	public boolean isLoginPageDisplayed() {
 		return checkElementExists(txtUserName);
 	}
 	
+	@Step("login through userName:{0} and password:{1}")
 	public void login(String userName, String passWord) {
 		enterValue(txtUserName,userName );
 		enterValue(txtPassword, passWord);
