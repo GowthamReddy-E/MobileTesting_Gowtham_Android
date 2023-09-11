@@ -5,7 +5,7 @@
         <listener class-name="com.listeners.ITestNGListenerClass" />
     </listeners> 
      <parameter name="env" value="qa"></parameter>
-  <test name="TC_01">
+  <test name="sanity_TC_01">
     <classes>
       <class name="com.tests.sampleTest"/>
     </classes>

@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">1 method,   1 passed</span>
+                    <span class="method-stats">2 methods,   2 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -104,6 +104,11 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-sanityTest" title="com.tests.sampleTest" class="method navigator-link" hash-for-method="TC_01">TC_01</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-sanityTest" title="com.tests.sampleTest" class="method navigator-link" hash-for-method="TC_02">TC_02</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-sanityTest -->
@@ -130,7 +135,16 @@
                   </a> <!-- TC_01 -->
                   <span class="method-name">TC_01</span>
                   <em>
-(this is the firstTest in the mobileTesting I'm creating)                  </em>
+(Check The MobileApp is open with valid credentials)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="TC_02">
+                  </a> <!-- TC_02 -->
+                  <span class="method-name">TC_02</span>
+                  <em>
+(Check The MobileApp is open with valid credentials allure reports)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -149,11 +163,11 @@
   &lt;listeners&gt;
     &lt;listener class-name=&quot;com.listeners.ITestNGListenerClass&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;TC_01&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;sanity_TC_01&quot;&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.tests.sampleTest&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- TC_01 --&gt;
+  &lt;/test&gt; &lt;!-- sanity_TC_01 --&gt;
 &lt;/suite&gt; &lt;!-- sanityTest --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -165,7 +179,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">TC_01 (1 class)</span>
+                <span class="test-name">sanity_TC_01 (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -191,16 +205,20 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(1);
+data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'TC_01')
 data.setCell(0, 2, 'com.tests.sampleTest')
-data.setCell(0, 3, 16217);
+data.setCell(0, 3, 13950);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'TC_02')
+data.setCell(1, 2, 'com.tests.sampleTest')
+data.setCell(1, 3, 8052);
 window.suiteTableData['sanityTest']= { tableData: data, tableDiv: 'times-div-sanityTest'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 16 seconds</span>
+              <span class="suite-total-time">Total running time: 22 seconds</span>
               <div id="times-div-sanityTest">
               </div> <!-- times-div-sanityTest -->
             </div> <!-- times-div -->
@@ -232,28 +250,44 @@ return data;
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
-                <span class="method-name">initializeReport(org.testng.TestRunner@41eb94bc)</span>
-                <span class="method-start">150 ms</span>
+                <span class="method-name">initializeReport(org.testng.TestRunner@58f437b0)</span>
+                <span class="method-start">153 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-method before">
-                <span class="method-name">intializeTest(public void com.tests.sampleTest.TC_01() throws java.io.IOException, org.testng.TestRunner@41eb94bc)</span>
-                <span class="method-start">584 ms</span>
+                <span class="method-name">intializeTest(public void com.tests.sampleTest.TC_01() throws java.io.IOException, org.testng.TestRunner@58f437b0)</span>
+                <span class="method-start">487 ms</span>
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">setUpPages</span>
-                <span class="method-start">17791 ms</span>
+                <span class="method-start">7736 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">TC_01</span>
-                <span class="method-start">17817 ms</span>
+                <span class="method-start">7758 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">35961 ms</span>
+                <span class="method-start">23221 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method before">
+                <span class="method-name">intializeTest(public void com.tests.sampleTest.TC_02() throws java.io.IOException, org.testng.TestRunner@58f437b0)</span>
+                <span class="method-start">23533 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
+                <span class="method-name">setUpPages</span>
+                <span class="method-start">29906 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="test-method">
+                <span class="method-name">TC_02</span>
+                <span class="method-start">29907 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">afterMethod</span>
+                <span class="method-start">39308 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-test after">
                 <span class="method-name">finalizeExecution</span>
-                <span class="method-start">36401 ms</span>
+                <span class="method-start">39668 ms</span>
               </div> <!-- configuration-test after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

@@ -8,9 +8,11 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.aventstack.extentreports.Status;
+import com.gowtham.utils.AllureReports;
 import com.gowtham.utils.EventUtil;
 import com.gowtham.utils.ReporterUtil;
 
+import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 
 public class LoginPage extends EventUtil {
@@ -42,7 +44,6 @@ public class LoginPage extends EventUtil {
 		this.driver = driver;
 	}
 
-
 	@Step("check weather the login page is displayed or not")
 	public boolean isLoginPageDisplayed() {
 		return checkElementExists(txtUserName);
@@ -53,6 +54,7 @@ public class LoginPage extends EventUtil {
 		enterValue(txtUserName,userName );
 		enterValue(txtPassword, passWord);
 		ReporterUtil.get().writeLog(Status.PASS	,"Enter Username and password","Secrets Page");
+		AllureReports.get().writeLog("user  enter the username and password", "loginPage");
 		clickElement(btnLogin);
 	}
 
