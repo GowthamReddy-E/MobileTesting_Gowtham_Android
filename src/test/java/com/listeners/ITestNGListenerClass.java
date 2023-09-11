@@ -11,21 +11,18 @@ public class ITestNGListenerClass implements ITestListener {
 	public void onTestSuccess(ITestResult result) {
 		System.out.println(result.getMethod().getMethodName()+ " is passed");
 		System.out.println("on test success gowtham");
-//		ReporterUtil.set(new ReporterUtil());
 		ReporterUtil.get().getScreenShot(result.getMethod().getMethodName()+"success");
 	}
 	
 	public void onTestFailure(ITestResult result) {
 		System.out.println(result.getMethod().getMethodName()+ " is failed");
 		System.out.println("on test failure gowtham");
-//		ReporterUtil.set(new ReporterUtil());
 		ReporterUtil.get().getScreenShot(result.getMethod().getMethodName()+"failure");
 	}
 
 	public void onTestSkipped(ITestResult result) {
 		System.out.println(result.getMethod().getMethodName()+ " is skipped");
 		System.out.println("on test skipped gowtham");
-//		ReporterUtil.set(new ReporterUtil());
 		ReporterUtil.get().getScreenShot(result.getMethod().getMethodName()+"skipped");
 	}
 

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-09-09T23:02:24 IST" name="TC_01" finished-at="2023-09-09T23:02:46 IST" duration-ms="22391">
+  <suite started-at="2023-09-11T19:18:45 IST" name="sanityTest" finished-at="2023-09-11T19:19:25 IST" duration-ms="39911">
     <groups>
     </groups>
-    <test started-at="2023-09-09T23:02:24 IST" name="sanityTest" finished-at="2023-09-09T23:02:46 IST" duration-ms="22391">
+    <test started-at="2023-09-11T19:18:45 IST" name="sanity_TC_01" finished-at="2023-09-11T19:19:25 IST" duration-ms="39911">
       <class name="com.tests.sampleTest">
-        <test-method is-config="true" signature="setUpExecution(java.lang.String)[pri:0, instance:com.tests.sampleTest@2657d4dd]" started-at="2023-09-09T23:02:24 IST" name="setUpExecution" depends-on-groups="get data from file:{0}" finished-at="2023-09-09T23:02:24 IST" duration-ms="123" status="PASS">
+        <test-method is-config="true" signature="setUpExecution(java.lang.String)[pri:0, instance:com.tests.sampleTest@1807f5a7]" started-at="2023-09-11T19:18:45 IST" name="setUpExecution" depends-on-groups="get data from file:{0}" finished-at="2023-09-11T19:18:45 IST" duration-ms="130" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,50 +18,78 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpExecution -->
-        <test-method is-config="true" signature="initializeReport(org.testng.ITestContext)[pri:0, instance:com.tests.sampleTest@2657d4dd]" started-at="2023-09-09T23:02:24 IST" name="initializeReport" description="initialize the report" finished-at="2023-09-09T23:02:24 IST" duration-ms="253" status="PASS">
+        <test-method is-config="true" signature="initializeReport(org.testng.ITestContext)[pri:0, instance:com.tests.sampleTest@1807f5a7]" started-at="2023-09-11T19:18:45 IST" name="initializeReport" description="initialize the report" finished-at="2023-09-11T19:18:45 IST" duration-ms="305" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@2e66bc32]]>
+                <![CDATA[org.testng.TestRunner@58f437b0]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- initializeReport -->
-        <test-method is-config="true" signature="intializeTest(java.lang.reflect.Method,org.testng.ITestContext)[pri:0, instance:com.tests.sampleTest@2657d4dd]" started-at="2023-09-09T23:02:24 IST" name="intializeTest" description="initialize the test before testcase start" finished-at="2023-09-09T23:02:35 IST" duration-ms="10777" status="PASS">
+        <test-method is-config="true" signature="intializeTest(java.lang.reflect.Method,org.testng.ITestContext)[pri:0, instance:com.tests.sampleTest@1807f5a7]" started-at="2023-09-11T19:18:45 IST" name="intializeTest" description="initialize the test before testcase start" finished-at="2023-09-11T19:18:52 IST" duration-ms="7181" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.tests.sampleTest.ticket_01()]]>
+                <![CDATA[public void com.tests.sampleTest.TC_01() throws java.io.IOException]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA[org.testng.TestRunner@2e66bc32]]>
+                <![CDATA[org.testng.TestRunner@58f437b0]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- intializeTest -->
-        <test-method is-config="true" signature="setUpPages()[pri:0, instance:com.tests.sampleTest@2657d4dd]" started-at="2023-09-09T23:02:35 IST" name="setUpPages" finished-at="2023-09-09T23:02:35 IST" duration-ms="38" status="PASS">
+        <test-method is-config="true" signature="setUpPages()[pri:0, instance:com.tests.sampleTest@1807f5a7]" started-at="2023-09-11T19:18:52 IST" name="setUpPages" finished-at="2023-09-11T19:18:52 IST" duration-ms="20" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpPages -->
-        <test-method signature="ticket_01()[pri:1, instance:com.tests.sampleTest@2657d4dd]" started-at="2023-09-09T23:02:35 IST" name="ticket_01" description="this is the firstTest in the mobileTesting I&#039;m creating" finished-at="2023-09-09T23:02:43 IST" duration-ms="7639" status="PASS">
+        <test-method signature="TC_01()[pri:1, instance:com.tests.sampleTest@1807f5a7]" started-at="2023-09-11T19:18:52 IST" name="TC_01" description="Check The MobileApp is open with valid credentials" finished-at="2023-09-11T19:19:06 IST" duration-ms="13950" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ticket_01 -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.tests.sampleTest@2657d4dd]" started-at="2023-09-09T23:02:45 IST" name="afterMethod" description="quit the driver" finished-at="2023-09-09T23:02:46 IST" duration-ms="588" status="PASS">
+        </test-method> <!-- TC_01 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.tests.sampleTest@1807f5a7]" started-at="2023-09-11T19:19:08 IST" name="afterMethod" description="quit the driver" finished-at="2023-09-11T19:19:08 IST" duration-ms="308" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="finalizeExecution()[pri:0, instance:com.tests.sampleTest@2657d4dd]" started-at="2023-09-09T23:02:46 IST" name="finalizeExecution" description="finalize the report" finished-at="2023-09-09T23:02:46 IST" duration-ms="818" status="PASS">
+        <test-method is-config="true" signature="intializeTest(java.lang.reflect.Method,org.testng.ITestContext)[pri:0, instance:com.tests.sampleTest@1807f5a7]" started-at="2023-09-11T19:19:08 IST" name="intializeTest" description="initialize the test before testcase start" finished-at="2023-09-11T19:19:15 IST" duration-ms="6371" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[public void com.tests.sampleTest.TC_02() throws java.io.IOException]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[org.testng.TestRunner@58f437b0]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- intializeTest -->
+        <test-method is-config="true" signature="setUpPages()[pri:0, instance:com.tests.sampleTest@1807f5a7]" started-at="2023-09-11T19:19:15 IST" name="setUpPages" finished-at="2023-09-11T19:19:15 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUpPages -->
+        <test-method signature="TC_02()[pri:2, instance:com.tests.sampleTest@1807f5a7]" started-at="2023-09-11T19:19:15 IST" name="TC_02" description="Check The MobileApp is open with valid credentials allure reports" finished-at="2023-09-11T19:19:23 IST" duration-ms="8052" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- TC_02 -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.tests.sampleTest@1807f5a7]" started-at="2023-09-11T19:19:24 IST" name="afterMethod" description="quit the driver" finished-at="2023-09-11T19:19:24 IST" duration-ms="358" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="finalizeExecution()[pri:0, instance:com.tests.sampleTest@1807f5a7]" started-at="2023-09-11T19:19:24 IST" name="finalizeExecution" description="finalize the report" finished-at="2023-09-11T19:19:25 IST" duration-ms="378" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- finalizeExecution -->
       </class> <!-- com.tests.sampleTest -->
-    </test> <!-- sanityTest -->
-  </suite> <!-- TC_01 -->
+    </test> <!-- sanity_TC_01 -->
+  </suite> <!-- sanityTest -->
 </testng-results>

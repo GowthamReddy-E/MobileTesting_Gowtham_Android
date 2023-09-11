@@ -21,7 +21,6 @@ public class ReporterUtil extends GenericUtil{
 	private ExtentReports extentReports;
 	private ExtentTest testCase;
 
-
 	private static ThreadLocal<ReporterUtil> threadLocal = new ThreadLocal<>();
 
 	public static void set(ReporterUtil reportUtil) {
@@ -53,8 +52,6 @@ public class ReporterUtil extends GenericUtil{
 		} catch(Exception e) {
 
 		}
-
-
 	}
 
 	public void writeLog(Status status, String stepInfo) {
@@ -81,9 +78,7 @@ public class ReporterUtil extends GenericUtil{
 			FileUtils.moveFile(img, new File(SCREENSHOT_FOLDER_PATH+screenShotName+"_"+getTimeStamp()+".png"));
 		} catch (Exception e) {
 			System.out.println("couldn't capture and save the screenshot with name : " + screenShotName);
-		}
-
-
+		   }
 		return ts.getScreenshotAs(OutputType.BASE64);
 	}
 

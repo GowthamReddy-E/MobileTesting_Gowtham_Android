@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
+import com.gowtham.utils.AllureReports;
 import com.gowtham.utils.DataUtil;
 import com.gowtham.utils.Driver;
 import com.gowtham.utils.EventUtil;
@@ -47,15 +48,12 @@ public class Configuration extends GlobalVariables{
 	@BeforeTest(description = "initialize the report")
 	public void initializeReport(ITestContext context) {
 		ReporterUtil.set(new ReporterUtil());
+		AllureReports.set(new AllureReports());
 		String suiteName = context.getCurrentXmlTest().getSuite().getName();
 		String testName = context.getCurrentXmlTest().getName();
 		ReporterUtil.get().initializeReport(suiteName+"_"+ testName);
 	}
-	
-	@AfterTest(description = "finalize the report")
-	public void finalizeExecution() {
-		ReporterUtil.get().finalizeReport();
-	}
+
 
 	@BeforeMethod(description = "initialize the test before testcase start")
 	public void intializeTest(Method method, ITestContext context) throws MalformedURLException {
@@ -78,6 +76,9 @@ public class Configuration extends GlobalVariables{
 		Driver.get().quit();
 	}
 
-
+	@AfterTest(description = "finalize the report")
+	public void finalizeExecution() {
+		ReporterUtil.get().finalizeReport();
+	}
 
 }
